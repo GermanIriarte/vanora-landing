@@ -15,15 +15,23 @@ body {
   
   /* Encabezado */
   .hero {
-    background-color: #ffeef4;
-    padding: 40px 20px;
-    border-bottom: 4px solid #f7c4e2;
+  background-color: #ffeef4;
+  border-bottom: 4px solid #f7c4e2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
   }
   
-  .hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: #9c27b0;
+
+  .header-top {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye logo a la izquierda, íconos a la derecha */
+    width: 100%;
+
   }
   
   .eslogan {
@@ -142,15 +150,31 @@ body {
   footer a:hover {
     text-decoration: underline;
   }
+
   .logo-vanora {
-    width: 220px;
-    height: 220px;
-    border-radius: 100%;        /* esto lo vuelve circular */
-    object-fit: cover;         /* recorta para que no se deforme */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* opcional: sombra suave */
-    margin-bottom: 10px;
+    width: 110px;
+    height: 110px;
+    margin-left: 40px;
+    border-radius: 100%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0; /* quita el margen inferior para que no separe del top */
+    margin-top: 20px;
   }
-  
+  .iconos-header {
+    display: flex;
+    gap: 15px;
+    margin-right: 60px;
+  }
+  .icono {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  .icono:hover {
+    transform: scale(1.1);
+  }
   .emprendedora {
     margin-top: 20px;
     text-align: center;
@@ -187,12 +211,187 @@ body {
     width: auto;
     min-width: 200px;
   }
+
+  .carrusel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 20px auto;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .carrusel-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    height: 760px;
+  }
+  
+  .carrusel-img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+.carrusel-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff; /* cambia si usas fondo claro */
+  text-align: center;
+  z-index: 1;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.carrusel-texto h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.carrusel-texto p {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.producto-destacado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin: 40px auto;
+  flex-wrap: wrap; /* se adapta en móvil */
+}
+
+.beneficios-lado {
+  max-width: 400px;
+  text-align: left;
+  font-size: 1.1em;
+}
+
+.beneficios-lado ul {
+  list-style: none;
+  padding: 0;
+}
+
+.beneficios-lado li {
+  margin-bottom: 10px;
+}
+
+.producto-imagen img {
+  width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.detalles-producto {
+  background-color: #fdf6ff;
+  padding: 30px 20px;
+  margin: 40px auto;
+  max-width: 800px;
+  border-radius: 15px;
+  text-align: left;
+}
+
+.detalles-producto h2 {
+  color: #9c27b0;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.detalles-producto ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1em;
+}
+
+.detalles-producto li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.faq {
+  background-color: #fff0f8;
+  padding: 40px 20px;
+}
+
+.faq h2 {
+  text-align: center;
+  color: #9c27b0;
+  margin-bottom: 30px;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e0cce4;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #5e548e;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.faq-question:hover {
+  background-color: #f7eaf7;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s;
+  padding: 0 15px;
+  color: #444;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px; /* puedes ajustar si las respuestas son más largas */
+  padding: 15px;
+}
+
+  
   @media (max-width: 480px) {
     .acciones button {
       display: block;
       margin: 10px auto;
     }
   }
+  @media (max-width: 600px) {
+    .producto-destacado {
+      gap: 15px; /* reduce el espacio entre imagen y lista */
+      flex-direction: column; /* ya lo hace por wrap, pero lo fuerzas aquí */
+      align-items: center;
+    }
   
+    .beneficios-lado {
+      text-align: center; /* opcional: centra texto en móvil */
+      font-size: 1em;      /* opcional: tamaño más compacto */
+    }
   
+    .producto-imagen img {
+      width: 250px;        /* opcional: imagen un poco más pequeña */
+    }
+  }
     
+  
+  
