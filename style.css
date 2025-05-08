@@ -392,6 +392,10 @@ body {
       width: 250px;        /* opcional: imagen un poco más pequeña */
     }
   }
-    
+  
+  @media (max-width: 600px) {
+    .carrusel {
+      width:90%;
+    }
   
   
